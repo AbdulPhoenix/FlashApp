@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="login-container">
+    <div class="login-card">
+        <h2>Welcome Back 👋</h2>
+        <p class="subtitle">Please login to your account</p>
+
+        <!-- Add method="POST" to send form data -->
+        <form method="POST">
+            <div class="input-group">
+                <input type="text" name="username" required>
+                <label>Username</label>
+            </div>
+
+            <div class="input-group">
+                <input type="password" name="password" required>
+                <label>Password</label>
+            </div>
+
+            <button type="submit">Login</button>
+
+            <p class="footer-text">
+                Don’t have an account? <a href="#">Sign up</a>
+            </p>
+
+        </form>
+
+        <!-- Display flash messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <p style="color:red; margin-top:10px;">{{ messages[0] }}</p>
+            {% endif %}
+        {% endwith %}
+    </div>
+</div>
+
+</body>
+</html>
